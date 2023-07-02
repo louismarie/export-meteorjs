@@ -1,4 +1,4 @@
-import './home.html'
+import './exportList.html'
 
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
