@@ -1,3 +1,5 @@
+import { Export } from '../both/collections';
+
 Meteor.publish('exports', function() {
-    return Exports.find({ ownerId: this.userId });
+    return Export.find({ ownerId: Meteor.userId()});
 });

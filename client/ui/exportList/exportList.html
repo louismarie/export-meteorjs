@@ -12,10 +12,12 @@
     </div>
 
     <ul>
-        {{#each exports}}
+        {{#each export in exports}}
             <li>
-                {{url}} - {{progress}}%
+                {{export.name}} - {{#if export.result}}{{export.result}}{{else}}{{export.progression}}{{/if}}%
             </li>
+        {{else}}
+            <li>No exports yet</li>
         {{/each}}
     </ul>
 </template>

@@ -21,6 +21,6 @@ Template.exportList.onCreated(function() {
 
 Template.exportList.helpers({
     exports() {
-        return Export.find({}, { sort: { createdAt: -1 }});
+        return Export.find({}, { sort: { createdAt: -1 }}).fetch();
     }
 });
