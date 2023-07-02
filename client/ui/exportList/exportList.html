@@ -1,5 +1,15 @@
 <template name="exportList">
-    <button id="startExport">Export</button>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="js-create-export">
+
+            <input type="text" class="form-control mb-2" placeholder="Name" name="name">
+            <div class="my-1">
+                <button type="submit"  class="btn">Export</button>
+            </div>
+            </form>
+        </div>
+    </div>
 
     <ul>
         {{#each exports}}

@@ -4,9 +4,9 @@ import SimpleSchema from 'simpl-schema';
 export const Export = new Mongo.Collection('export');
 
 export const ExportUpsertSchema = new SimpleSchema({
-    progression: Number,
-    result: {
+    name: {
         type: String,
-        optional: true
+        min: 3,
+        max: 50
     }
 }, { check });

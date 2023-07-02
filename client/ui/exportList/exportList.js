@@ -1,45 +1,26 @@
 import './exportList.html'
+import { Export } from '../../../both/collections'
 
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+Template.exportList.events({
+    'submit .js-create-export'(event, instance) {
+        event.preventDefault();
+
+        const name = event.target.name.value;
+
+        Meteor.call('createExport', {name}, function(err, exportId) {
+            if(!err) {
+                event.target.name.value = '';
+            }
+        });
+    }
+});
 
 Template.exportList.onCreated(function() {
-    this.exports = new ReactiveVar([]);
-
-    this.startExport = function() {
-        const exports = this.exports.get();
-        const newExport = {
-            url: '',
-            progress: 0
-        };
-        exports.push(newExport);
-        this.exports.set(exports);
-
-        const intervalId = Meteor.setInterval(() => {
-            newExport.progress += 5;
-            if (newExport.progress >= 100) {
-                Meteor.clearInterval(intervalId);
-                const urls = [
-                    'https://www.lempire.com/',
-                    'https://www.lemlist.com/',
-                    'https://www.lemverse.com/',
-                    'https://www.lemstash.com/'
-                ];
-                newExport.url = urls[Math.floor(Math.random() * urls.length)];
-            }
-            this.exports.set(exports);
-        }, 1000);
-    };
+    this.subscribe('exports');
 });
 
 Template.exportList.helpers({
     exports() {
-        return Template.instance().exports.get();
-    }
-});
-
-Template.exportList.events({
-    'click #startExport'(event, instance) {
-        instance.startExport();
+        return Export.find({}, { sort: { createdAt: -1 }});
     }
 });
