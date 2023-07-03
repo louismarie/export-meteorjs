@@ -1,0 +1,21 @@
+<head>
+</head>
+
+<body>
+  {{> exportList}}
+</body>
+
+
+<template name="exportList">
+    <button id="startExport">Export</button>
+
+    <ul>
+        {{#each exports}}
+            <li>
+                {{url}} - {{progress}}%
+            </li>
+        {{/each}}
+    </ul>
+</template>
+
+
