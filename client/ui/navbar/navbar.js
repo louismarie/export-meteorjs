@@ -1,10 +1,10 @@
 import './navbar.html';
 
 Template.navbar.events({
-    'click .js-open-login-modal'(event, instance) {
+    'click .js-open-login-modal'() {
         Modal.show('login_modal');
     },
-    'click .js-logout'(event, instance) {
+    'click .js-logout'() {
         Meteor.logout();
     },
 });

@@ -10,13 +10,4 @@ Meteor.methods({
         }
         return Export.insert({progress : 0, name})
     },
-    updateExport(myExport) {
-        Export.update({_id: myExport._id},
-            {
-                $set:
-                {
-                    progress: myExport.progress
-                }
-            });
-    }
 })
