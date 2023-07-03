@@ -11,6 +11,7 @@ Template.exportList.events({
             if(!err) {
                 event.target.name.value = '';
             }
+            //TODO: handle error message appropriately
         });
     }
 });
