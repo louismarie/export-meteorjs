@@ -1,6 +1,6 @@
 import { Export } from '../both/collections';
 
-export function startExport(myExport) {
+export function startOrContinueExport(myExport) {
     const intervalId = Meteor.setInterval(() => {
         myExport.progress += 5;
         if (myExport.progress >= 100) {
