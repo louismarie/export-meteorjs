@@ -1,0 +1,6 @@
+{
+  "public": {
+    "environment": "PRODUCTION",
+    "isExportModule": true
+  }
+}

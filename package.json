@@ -2,7 +2,8 @@
   "name": "simple-todos-blaze",
   "private": true,
   "scripts": {
-    "start": "meteor run",
+    "start": "MONGO_URL=mongodb://localhost:27017/meteor meteor --settings private/env/dev/settings.json -p 3000",
+    "start-jobs": "MONGO_URL=mongodb://localhost:27017/meteor meteor --settings private/env/dev/export-settings.json -p 5000",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer"

@@ -8,14 +8,14 @@ Meteor.methods({
         if (!this.userId) {
             throw new Meteor.Error('not-connected');
         }
-        return Export.insert({progression : 0, ownerId: this.userId, name})
+        return Export.insert({progress : 0, name})
     },
     updateExport(myExport) {
         Export.update({_id: myExport._id},
             {
                 $set:
                 {
-                    progression: myExport.progression
+                    progress: myExport.progress
                 }
             });
     }
