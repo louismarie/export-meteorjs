@@ -3,7 +3,7 @@ import { Export, ExportUpsertSchema } from './collections.js';
 Meteor.methods({
     createExport(myExport) {
         ExportUpsertSchema.validate(myExport);
-        name = myExport.name;
+        const name = myExport.name;
 
         if (!this.userId) {
             throw new Meteor.Error('not-connected');
