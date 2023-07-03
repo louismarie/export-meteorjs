@@ -4,10 +4,7 @@ Getting started :
 
 Requirements : 
 - Meteor
-- Docker
-
-Run MongoDB database :
-docker run --name mongodb -d -p 27017:27017 -p 3001:3001 mongodb/mongodb-community-server
+- Local MongoDB database running
 
 Run Meteor www app :
 yarn start
